@@ -69,6 +69,8 @@ class GradientButton extends React.PureComponent {
       start: { x: 0, y: 0 },
       end: { x: 1, y: 1 }
     };
+    
+    const content = (text ? <Text style={[styles.text, textStyle]}>{text}</Text> : children)
 
     return (
       <TouchableOpacity
@@ -116,7 +118,7 @@ class GradientButton extends React.PureComponent {
               : horizontalGradient.end
           }
         >
-          <Text style={[styles.text, textStyle]}>{text ? text : children}</Text>
+          { content }
         </LinearGradient>
       </TouchableOpacity>
     );
