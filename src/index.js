@@ -5,7 +5,7 @@ import * as Haptics from "expo-haptics";
 
 const styles = StyleSheet.create({
   button: {
-    marginHorizontal: 8
+    marginHorizontal: 0
   },
   gradient: {
     height: "100%",
