@@ -1,7 +1,6 @@
 import React from "react";
 import { Platform, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import * as Haptics from "expo-haptics";
+import LinearGradient from 'react-native-linear-gradient';
 
 const styles = StyleSheet.create({
   button: {
@@ -35,8 +34,6 @@ class GradientButton extends React.PureComponent {
       height,
       width,
       radius,
-      impact,
-      impactStyle,
       onPressAction,
       purpleViolet,
       violetPink,
@@ -66,21 +63,13 @@ class GradientButton extends React.PureComponent {
       end: { x: 0, y: 1 }
     };
 
-    const diagonalGradient = {
-      start: { x: 0, y: 0 },
-      end: { x: 1, y: 1 }
-    };
-    
-    const content = (text ? <Text style={[styles.text, textStyle]}>{text}</Text> : children)
+    const content = (text ? <Text style={[styles.text, textStyle]}>{text}</Text> : children);
 
     return (
       <TouchableOpacity
         style={[styles.button, { height, width }, style]}
         activeOpacity={activeOpacity}
         onPress={disabled ? null : () => {
-          if (Platform.OS === "ios" && impact === true) {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle[impactStyle]);
-          }
           if (onPressAction) {
             return onPressAction();
           }
@@ -108,15 +97,11 @@ class GradientButton extends React.PureComponent {
           start={
             gradientDirection === "vertical"
               ? verticalGradient.start
-              : gradientDirection === "diagonal"
-              ? diagonalGradient.start
               : horizontalGradient.start
           }
           end={
             gradientDirection === "vertical"
               ? verticalGradient.end
-              : gradientDirection === "diagonal"
-              ? diagonalGradient.end
               : horizontalGradient.end
           }
         >

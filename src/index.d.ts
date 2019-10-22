@@ -16,8 +16,6 @@ export interface Props {
     height: any,
     width: any,
     radius: number,
-    impact: boolean,
-    impactStyle: string,
     onPressAction: Function,
     purpleViolet: boolean,
     violetPink: boolean,
